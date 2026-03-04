@@ -101,12 +101,24 @@ window.onload = () => {
 };
 
 function copiarCBU() {
-    navigator.clipboard.writeText(CONFIG.cbu).then(() => {
-        const toast = document.getElementById("toast");
-        toast.textContent = "✅ CBU Copiado con éxito";
-        toast.className = "show";
-        setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
-    });
+    // Verificamos que CONFIG exista para que no tire error
+    if (typeof CONFIG !== 'undefined' && CONFIG.cbu) {
+        navigator.clipboard.writeText(CONFIG.cbu).then(() => {
+            const toast = document.getElementById("toast");
+            
+            if (toast) { // Verificamos que el div exista en el HTML
+                toast.textContent = "✅ CBU Copiado con éxito";
+                toast.classList.add("show"); // Usar classList es más seguro
+                
+                setTimeout(() => { 
+                    toast.classList.remove("show"); 
+                }, 3000);
+            } else {
+                // Si olvidaste el HTML, al menos te avisa por consola
+                console.error("No se encontró el elemento #toast en el HTML");
+            }
+        });
+    }
 }
 
 function enviarWhatsappPersonalizado() {
