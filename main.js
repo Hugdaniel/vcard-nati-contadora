@@ -84,3 +84,12 @@ window.onload = () => {
     const textoElemento = document.getElementById('carrusel-texto');
     if (textoElemento) textoElemento.textContent = CONFIG.servicios[0];
 };
+
+function copiarCBU() {
+    navigator.clipboard.writeText(CONFIG.cbu).then(() => {
+        const toast = document.getElementById("toast");
+        toast.textContent = "✅ CBU Copiado con éxito";
+        toast.className = "show";
+        setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+    });
+}

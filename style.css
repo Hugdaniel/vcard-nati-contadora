@@ -1,0 +1,162 @@
+:root {
+    --azul-marino: #1B263B;
+    --gris-oxford: #415A77;
+    --blanco-puro: #FFFFFF;
+    --blanco-fondo: #F4F7F9;
+    --texto-oscuro: #0D1B2A;
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-cuerpo: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--blanco-fondo);
+    color: var(--texto-oscuro);
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.6;
+}
+
+.header-fijo {
+    background: var(--azul-marino);
+    color: var(--blanco-puro);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--gris-oxford);
+    border-radius: 0 0 30px 30px;
+    box-shadow: var(--sombra);
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--blanco-puro);
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.header-fijo h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.profesion {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+    letter-spacing: 2px;
+}
+
+/* Botón de Audio */
+.audio-container {
+    background: var(--blanco-puro);
+    border: 1px solid var(--gris-oxford);
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    border-radius: 50px;
+    width: fit-content;
+    margin: -25px auto 20px; /* Sube un poco para "pisar" el header */
+    box-shadow: var(--sombra);
+    cursor: pointer;
+}
+
+/* Carrusel de Servicios */
+.seccion-carrusel {
+    text-align: center;
+    padding: 20px;
+}
+
+.carrusel-box {
+    background: var(--azul-marino);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.grid-acciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.accion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--azul-marino);
+    cursor: pointer;
+}
+
+.icon-circle {
+    width: 55px;
+    height: 55px;
+    background: var(--blanco-puro);
+    border: 1px solid var(--gris-oxford);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.icon-circle:active {
+    background: var(--gris-oxford);
+    color: white;
+}
+
+/* Botón Agendar (Call to Action) */
+.btn-guardar {
+    display: block;
+    width: 80%;
+    margin: 30px auto;
+    padding: 15px;
+    background: var(--azul-marino);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(27, 38, 59, 0.3);
+}
+
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--azul-marino);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    position: fixed;
+    z-index: 2000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 14px;
+}
+
+#toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+@keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
