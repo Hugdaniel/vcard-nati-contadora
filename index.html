@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Contadora Natalia | Identidad Digital</title>
+    <meta property="og:title" content="Contadora Natalia">
+    <meta property="og:description" content="Tu tranquilidad contable, nuestro compromiso">
+    <meta property="og:image" content="assets/foto-perfil.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-fijo">
+        <div class="perfil-container">
+            <img src="assets/foto-perfil.png" alt="Contadora" class="foto-perfil">
+            <h1>Contadora Natalia Ramayo</h1>
+            <p class="profesion">Contadora Pública Nacional</p>
+            <p class="slogan"><em>"Tu tranquilidad contable, nuestro compromiso"</em></p>
+        </div>
+    </header>
+
+    <main class="contenido-scroll">
+        
+        <section class="seccion-audio">
+            <div class="audio-container" onclick="toggleAudio()">
+                <div id="audio-visualizer" class="audio-icon">
+                    <i class="fas fa-play" id="play-icon"></i>
+                </div>
+                <div class="audio-info">
+                    <span id="audio-status">Escuchar presentación</span>
+                    <small>Audio informativo</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-carrusel">
+            <h3>Servicios Profesionales</h3>
+            <div class="carrusel-box">
+                <p id="carrusel-texto">Cargando servicios...</p>
+            </div>
+        </section>
+
+        <section class="grid-acciones">
+            <div class="accion-item" onclick="window.location.href='https://wa.me/54911...'">
+                <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
+                <span>WhatsApp</span>
+            </div>
+
+            <div class="accion-item" onclick="copiarCBU()">
+                <div class="icon-circle"><i class="fas fa-credit-card"></i></div>
+                <span>Copiar CBU</span>
+            </div>
+
+            <div class="accion-item" onclick="window.location.href='mailto:nataliaramayo32@gmail.com'">
+                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                <span>Email</span>
+            </div>
+        </section>
+
+        <section class="seccion-vcf">
+            <button class="btn-guardar" onclick="descargarVCF()">
+                <i class="fas fa-user-plus"></i> AGENDAR CONTACTO
+            </button>
+        </section>
+
+    </main>
+
+    <footer class="footer-firma">
+        <p>Diseño por <a href="TU_VCARD_URL">Visión Design</a></p>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
