@@ -39,6 +39,7 @@ body {
     border: 3px solid var(--blanco-puro);
     margin-bottom: 15px;
     object-fit: cover;
+    object-position: center 15%;
 }
 
 .header-fijo h1 {
