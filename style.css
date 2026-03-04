@@ -53,6 +53,8 @@ body {
     text-transform: uppercase;
     opacity: 0.8;
     letter-spacing: 2px;
+    padding-bottom: 8px;
+    
 }
 
 /* Botón de Audio */
@@ -60,6 +62,8 @@ body {
     background: var(--blanco-puro);
     border: 1px solid var(--gris-oxford);
     display: flex;
+    justify-content: space-between;
+    gap: 15px;
     align-items: center;
     padding: 12px 25px;
     border-radius: 50px;
@@ -89,9 +93,11 @@ body {
 
 .grid-acciones {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .accion-item {
@@ -161,3 +167,99 @@ body {
 
 @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
 @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+.seccion-consultas {
+    padding: 20px;
+    text-align: center;
+}
+
+.label-consulta {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--gris-oxford);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.select-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.select-personalizado {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--gris-oxford);
+    border-radius: 10px;
+    background-color: white;
+    font-family: var(--fuente-cuerpo);
+    color: var(--azul-marino);
+    font-size: 1rem;
+    appearance: none; /* Quita la flecha por defecto */
+    cursor: pointer;
+}
+
+/* Agregamos una flechita personalizada con CSS */
+.select-wrapper::after {
+    content: '▼';
+    font-size: 0.8rem;
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    color: var(--azul-marino);
+    pointer-events: none;
+}
+
+.btn-whatsapp-dinamico {
+    width: 100%;
+    padding: 15px;
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: 0.3s;
+}
+
+.btn-whatsapp-dinamico:active {
+    transform: scale(0.95);
+}
+
+/* footer */
+.footer-firma {
+    margin-top: 50px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.footer-firma p {
+    font-size: 0.7rem;
+    color: var(--gris-oxford);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.footer-firma a {
+    color: var(--texto-oscuro);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-firma {
+    font-size: 0.8rem;
+    color: var(--azul-marino);
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.cta-firma:hover {
+    opacity: 1;
+}
+
+.cta-firma span{
+    text-decoration: none;
+}

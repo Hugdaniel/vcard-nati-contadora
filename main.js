@@ -19,7 +19,7 @@ function rotarServicios() {
 }
 
 // Iniciar el carrusel cada 3 segundos
-setInterval(rotarServicios, 3000);
+setInterval(rotarServicios, 2000);
 
 
 // --- 2. LÓGICA DEL AUDIO PLAYER ---
@@ -30,13 +30,28 @@ function toggleAudio() {
     const statusText = document.getElementById('audio-status');
     const visualizer = document.getElementById('audio-visualizer');
 
-    if (audioGuia.paused) {
-        audioGuia.play();
+    // Si es la primera vez que hace clic, creamos el objeto Audio con la ruta correcta
+    if (!window.miAudioActual) {
+        const rutaCorrecta = obtenerRutaAudioSegunHora();
+        window.miAudioActual = new Audio(rutaCorrecta);
+        
+        // Configuración para que el botón vuelva a "Play" cuando termine el audio
+        window.miAudioActual.onended = () => {
+            playIcon.classList.replace('fa-pause', 'fa-play');
+            statusText.textContent = "Escuchar presentación";
+            visualizer.classList.remove('playing');
+            window.miAudioActual = null; // Limpiamos para que la próxima vez chequee la hora de nuevo
+        };
+    }
+
+    // Lógica de Play/Pausa
+    if (window.miAudioActual.paused) {
+        window.miAudioActual.play();
         playIcon.classList.replace('fa-play', 'fa-pause');
         statusText.textContent = "Reproduciendo...";
         visualizer.classList.add('playing');
     } else {
-        audioGuia.pause();
+        window.miAudioActual.pause();
         playIcon.classList.replace('fa-pause', 'fa-play');
         statusText.textContent = "Escuchar presentación";
         visualizer.classList.remove('playing');
@@ -92,4 +107,34 @@ function copiarCBU() {
         toast.className = "show";
         setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
     });
+}
+
+function enviarWhatsappPersonalizado() {
+    const selector = document.getElementById('tipo-consulta');
+    const opcionSeleccionada = selector.value;
+    
+    // Obtenemos el texto real del objeto CONFIG usando la opción del selector
+    const mensajeTexto = CONFIG.consultas[opcionSeleccionada] || "Hola, vengo de tu vCard.";
+    const mensajeURL = encodeURIComponent(mensajeTexto);
+    
+    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${mensajeURL}`, '_blank');
+}
+
+function obtenerRutaAudioSegunHora() {
+    const ahora = new Date();
+    const hora = ahora.getHours();
+    const dia = ahora.getDay(); // 0: Domingo, 1: Lunes... 6: Sábado
+
+    // 1. FIN DE SEMANA (Sábado desde las 13hs o Domingo todo el día)
+    if (dia === 0 || (dia === 6 && hora >= 13)) {
+        return "assets/audio-lunes.mp3";
+    }
+
+    // 2. FUERA DE HORARIO SEMANAL (Noche: 19hs a 08hs)
+    if (hora >= 19 || hora < 8) {
+        return "assets/audio-no-disponible.mp3";
+    }
+
+    // 3. HORARIO COMERCIAL (Resto del tiempo)
+    return "assets/audio-bienvenida.mp3";
 }

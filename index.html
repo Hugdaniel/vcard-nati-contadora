@@ -19,7 +19,7 @@
     <header class="header-fijo">
         <div class="perfil-container">
             <img src="assets/foto-perfil.png" alt="Contadora" class="foto-perfil">
-            <h1>Contadora Natalia Ramayo</h1>
+            <h1>Natalia Ramayo</h1>
             <p class="profesion">Contadora Pública Nacional</p>
             <p class="slogan"><em>"Tu tranquilidad contable, nuestro compromiso"</em></p>
         </div>
@@ -33,8 +33,8 @@
                     <i class="fas fa-play" id="play-icon"></i>
                 </div>
                 <div class="audio-info">
-                    <span id="audio-status">Escuchar presentación</span>
-                    <small>Audio informativo</small>
+                    <span id="audio-status">Audio informativo</span>
+                    <!-- <small>Audio informativo</small> -->
                 </div>
             </div>
         </section>
@@ -46,12 +46,26 @@
             </div>
         </section>
 
-        <section class="grid-acciones">
-            <div class="accion-item" onclick="window.location.href='https://wa.me/54911...'">
-                <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
-                <span>WhatsApp</span>
-            </div>
+        <section class="seccion-consultas">
+    <label for="tipo-consulta" class="label-consulta">¿Qué necesitás consultar?</label>
+    
+    <div class="select-wrapper">
+        <select id="tipo-consulta" class="select-personalizado">
+            <option value="Monotributo">Monotributo</option>
+            <option value="Alta de Impuestos">Alta de Impuestos</option>
+            <option value="Pagos de VEP">Pagos de VEP</option>
+            <option value="Sueldos">Liquidación de Sueldos</option>
+            <option value="Otra">Otra consulta general</option>
+        </select>
+    </div>
 
+    <button onclick="enviarWhatsappPersonalizado()" class="btn-whatsapp-dinamico">
+        <i class="fab fa-whatsapp"></i> ENVIAR CONSULTA POR WHATSAPP
+    </button>
+</section>
+
+        <section class="grid-acciones">
+           
             <div class="accion-item" onclick="copiarCBU()">
                 <div class="icon-circle"><i class="fas fa-credit-card"></i></div>
                 <span>Copiar CBU</span>
@@ -72,10 +86,15 @@
     </main>
 
     <footer class="footer-firma">
-        <p>Diseño por <a href="TU_VCARD_URL">Visión Design</a></p>
-    </footer>
+    <p>Impulsado por 
+        <a href="https://tu-vcard.netlify.app" target="_blank"><strong>Visión Design</strong></a>
+    </p>
+    <a href="https://wa.me/5491137878083?text=Hola! Vengo de la vCard de la contadora Natalia y me gustaría consultar por una para mi." class="cta-firma">
+        ¿Querés una tarjeta como esta?
+    </a>
+</footer>
 
     <script src="config.js"></script>
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -7,8 +7,8 @@ const CONFIG = {
     whatsapp: "5491122532326", // Formato: código de país + código de área + número (sin el +)
 
     // 💰 Datos de Cobro (Para la función copiarCBU)
-    cbu: "0000000000000000000000", // Los 22 dígitos
-    alias: "ESTUDIO.CONTABLE.IA",
+    cbu: "0720492488000035544672", // Los 22 dígitos
+    alias: "RANA.CALA.PEZ",
 
     // 🎙️ Configuración de Audios (Rutas a tus archivos)
     // Recordá que la lógica del script elegirá uno según la hora
