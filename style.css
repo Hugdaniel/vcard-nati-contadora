@@ -15,6 +15,16 @@
     box-sizing: border-box;
 }
 
+/* Quita el recuadro azul al tocar elementos en el celular */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* También es buena práctica quitar el contorno (outline) si usas botones reales */
+.accion-item, .icon-circle, button, a {
+    outline: none;
+}
+
 body {
     background-color: var(--blanco-fondo);
     color: var(--texto-oscuro);
